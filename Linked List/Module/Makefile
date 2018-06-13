@@ -8,6 +8,9 @@ LDIR = lib
 
 LIBS = -lm
 
+EXECUTABLE_FILE = List.exe
+
+
 
 _SOURCE=DeleteFromBeginning.c InsertAtBeginning.c Main.c Memory.c PrintNode.c
 SOURCE = $(patsubst %,$(SOURCEDIR)/%,$(_SOURCE))
@@ -19,16 +22,24 @@ _OBJ = DeleteFromBeginning.o InsertAtBeginning.o Main.o Memory.o PrintNode.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
+
+
+
 $(ODIR)/%.o: $(SOURCEDIR)/%.c $(DEPS)
     $(CC) -c -o $@ $< $(CFLAGS)
 
-List.exe: $(OBJ)
+$(EXECUTABLE_FILE): $(OBJ)
     $(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+
+
 
 .PHONY: clean
 
 clean:
-    rm -rf $(ODIR)/*.o *~ core $(INCDIR)/*~ List.exe
+    rm -rf $(ODIR)/*.o *~ core $(INCDIR)/*~ $(EXECUTABLE_FILE)
+
+
 
 run: List.exe
-    ./List.exe
+    ./$(EXECUTABLE_FILE)
+
