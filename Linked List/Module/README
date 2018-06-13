@@ -1,0 +1,6 @@
+The easiest way to build Linked List Module is to use the Makefile found in the Module
+directory.  Do this to build:
+
+    $ make clean
+    $ make
+	  $ make run
