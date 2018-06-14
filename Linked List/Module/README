@@ -3,4 +3,4 @@ directory.  Do this to build:
 
     $ make clean
     $ make
-	  $ make run
+    $ make run
